@@ -1,0 +1,23 @@
+<div class="well well-lg center-block">
+<form class="form-inline text-center">
+  <div class="form-group form-group-lg">
+      {{input value=query placeholder="Search for images" type="search" class="form-control"}}
+      <button {{action "search" query}} type="submit" class="btn btn-primary btn-lg">Search</button>
+  </div>
+</form>
+</div>
+
+{{#if imageResults}}
+<div class="row">
+    {{#each imageResults as |result|}}
+        <div class="col-lg-3 col-sm-6 col-xs-12">
+            <div class="thumbnail">
+                <img src="{{result.thumbnail.url}}" class="img-responsive" />
+                <div class="caption">
+                    <h4><small>{{result.url}}</small></h4>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</div>
+{{/if}}
